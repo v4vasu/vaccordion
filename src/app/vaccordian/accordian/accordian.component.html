@@ -1,0 +1,10 @@
+<div class="row vaccordian">
+  <div class="accordian-header col-12" (click)="toggleAccordian()">
+      <ng-content select="[accordianHeader]"></ng-content>
+  </div>
+  <div [@toggleState]="state" class="col-12">
+    <div class="accordian-body col-12" *ngIf="isOpened" >
+      <ng-content select="[accordianBody]"></ng-content>
+    </div>
+  </div>  
+</div>

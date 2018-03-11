@@ -1,0 +1,24 @@
+<article class="row">
+  <h3 class="col-xs-12 col-sm-12">Login</h3>
+    <div class="col-xs-12 col-sm-8">
+      <form [formGroup]="signIn" (ngSubmit)="logon()">
+        <fieldset class="form-group">
+          <label>Username: </label>
+          <input
+           type="text" 
+           class="form-control"
+           formControlName="username"
+           crs-validate="required: Please enter your username. || min: Username should be greater 3 characters." />
+        </fieldset>
+        <fieldset class="form-group">
+            <label>Password: </label>
+            <input 
+            type="password"
+            class="form-control" 
+            formControlName="password"
+            crs-validate="required: Please enter your Password. || min: Password should be greater 3 characters." />
+        </fieldset>
+        <button type="submit" class="btn btn-primary">Login</button>
+      </form>
+    </div>
+  </article>
