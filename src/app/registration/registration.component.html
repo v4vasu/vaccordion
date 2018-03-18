@@ -1,22 +1,80 @@
 <section class="container">
     <h1> Accordian 1 works!</h1>
-  <crs-accordian>
-    <accordian>
-      <div accordianHeader>accordian header 1</div>
-      <div accordianBody>
-        <p>accordian body 1</p>
-      </div>
-    </accordian>
-    <accordian>
-        <div accordianHeader>accordian header 2</div>
-        <div accordianBody>
-          <p>accordian body 2</p>
+  <form [formGroup]="registrationForm" (ngSubmit)="register()">
+    <crs-accordian>
+        <accordian [openAccordion]="true">
+        <div accordianHeader class="row">
+            <span class="col-4">Name</span>
+            <span class="col-7">Your Name </span> 
+            <span class="col-1 icon plus"></span>
+        </div>
+        <div accordianBody class="row" formGroupName="userName">
+            <div class="col-4">
+            <label>First Name: </label>
+            <input type="text" class="form-control" formControlName="firstName" />
+            </div>
+            <div class="col-3">
+                <label>Middle Name: </label>            
+                <input type="text" class="form-control" formControlName="middleName" />
+            </div>
+            <div class="col-5">
+                <label>Last Name: </label>            
+                <input type="text" class="form-control" formControlName="lastName" />
+            </div>
+        </div>
+        </accordian>
+        <accordian>
+        <div accordianHeader class="row">
+            <span class="col-4">Email Address</span>
+            <span class="col-7">user@domain.com </span> 
+            <span class="col-1 icon plus"></span>
+        </div>
+        <div accordianBody class="row">
+            <div class="col-8">
+            <label>Email Address: </label>
+            <input type="email" class="form-control" formControlName="email" />
+            </div>
+        </div>
+        </accordian>
+        <accordian>
+        <div accordianHeader class="row">
+            <span class="col-4">Address</span>
+            <span class="col-7">Street Address </span> 
+            <span class="col-1 icon plus"></span>
+        </div>
+        <div accordianBody class="row" formGroupName="userAddress">
+            <div class="col-8">
+            <label>Street Address (No P.O. Boxes): </label>
+            <input type="text" class="form-control" formControlName="streetAddress" />
+            </div>
+            <div class="col-4">
+                <label>Apt./Suite (Optional): </label>            
+                <input type="text" class="form-control" formControlName="apt" />
+            </div>
+            <div class="col-6">
+                <label>City: </label>
+                <input type="text" class="form-control" formControlName="city" />
+            </div>
+            <div class="col-2">
+                <label>State: </label>            
+                <input type="text" class="form-control" formControlName="state" />
+            </div>
+            <div class="col-4">
+                <label>Zipcode: </label>            
+                <input type="text" class="form-control" formControlName="zipCode" />
+            </div>
         </div>
     </accordian>
-  </crs-accordian>
+    </crs-accordian>
+    <div class="form-group row">
+       <div class="col-12">
+        <button type="sumbit" class="btn btn-primary col-4 float-right">Submit</button>
+       </div>
+    </div>
+</form>
 </section>
-<hr />
-<!-- <section class="container">
+<!--<hr />
+ <section class="container">
     <h1> Accordian 2 works!</h1>
     <crs-accordian>
         <accordian>

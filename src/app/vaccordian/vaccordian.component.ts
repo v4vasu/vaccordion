@@ -14,7 +14,7 @@ export class VaccordianComponent implements  AfterContentInit {
   tempArr: any[];
   ngAfterContentInit(){
     console.log(this.vaccordian);
-    this.tempArr.push(Object.assign({}, this.vaccordian) );  
+    //this.tempArr.push(Object.assign({}, this.vaccordian) );  
     this._accService.isAnyAccordianOpened.subscribe((currentAcc)=>{
       this.openAccordian(currentAcc);
     });    
