@@ -1,4 +1,4 @@
-import { Component,Input, OnInit, EventEmitter, trigger, state, style, transition, animate } from '@angular/core';
+import { Component,Input, OnInit, EventEmitter, trigger, state, style, transition, animate, ElementRef } from '@angular/core';
 import {AccordianService} from '../service/accordian.service';
 @Component({
   selector: 'accordian',
@@ -19,11 +19,10 @@ import {AccordianService} from '../service/accordian.service';
   ]
 })
 export class AccordianComponent implements OnInit {
-  //isOpened: boolean = false;
   state = 'close';
   @Input('openAccordion') isOpened: boolean;
-  constructor(private _accServcice: AccordianService) { }
-
+  constructor(private _accServcice: AccordianService, private el: ElementRef) { }
+  parentId:string;
   ngOnInit() {
     this.isOpened = this.isOpened == undefined ? this.isOpened = false: this.isOpened = this.isOpened;
     if(this.isOpened){
@@ -31,9 +30,11 @@ export class AccordianComponent implements OnInit {
     }
   }
   toggleAccordian(){
-    console.log(this.state);
+    //console.log(this.state);
     this.state = this.state == 'close' ? this.state = 'open': this.state = 'close';
-    console.log(this.state);
+    //console.log(this.state);
+    this.parentId = this.el.nativeElement.parentElement.parentElement.getAttribute("id");
+    //console.log(this);
     this._accServcice.isAnyAccordianOpened.emit(this);
   }
 }
